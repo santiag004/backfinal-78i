@@ -51,10 +51,10 @@ const deleteUsuario = async (req, res) => {
 const updateUser = async (req, res) => {
     try {
         const { id } = req.params
-        const { admin, nombre, apellido } = req.body
+        const { nombre, apellido, email, telefono, admin } = req.body
         const usuario = await usuarioModel.findByIdAndUpdate(
             id,
-            { nombre, apellido, admin },
+            { nombre, apellido, email, telefono, admin },
             { new: true }
         )
         res.json(usuario)
