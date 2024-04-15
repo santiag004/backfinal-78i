@@ -15,10 +15,10 @@ const getAllClasses = async (req, res) => {
 const addClass = async (req, res) => {
     console.log(req.body, "body")
     try {
-        const { profesor, detalle_clase, fecha, hora } = req.body
+        const { profesor, detalle, fecha, hora } = req.body
         const clase = new classesModel({
             profesor,
-            detalle_clase,
+            detalle,
             fecha,
             hora,
         })
@@ -46,10 +46,10 @@ const deleteClass = async (req, res) => {
 const updateClass = async (req, res) => {
     try {
         const { id } = req.params
-        const { profesor, detalle_clase, fecha, hora } = req.body
+        const { profesor, detalle, fecha, hora } = req.body
         const clase = await classesModel.findByIdAndUpdate(
             id,
-            { profesor, detalle_clase, fecha, hora },
+            { profesor, detalle, fecha, hora },
             { new: true }
         )
         res.json(clase)

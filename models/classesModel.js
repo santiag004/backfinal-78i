@@ -3,9 +3,9 @@ import { Schema } from "mongoose";
 
 const classesSchema = new Schema({
     profesor: String,
-    detalle_clase: String,
-    fecha: Date,
-    hora: Date
+    detalle: String,
+    fecha: String,
+    hora: String
     },
     {versionKey: false}
 )

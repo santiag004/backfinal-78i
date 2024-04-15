@@ -11,7 +11,7 @@ router.post("/users/register", usersController.registroUsuario)
 
 router.delete("/user/:id", usersController.deleteUsuario)
 
-router.patch("/user/:id", usersController.updateUser)
+router.put  ("/user/:id", usersController.updateUser)
 
 router.post("/user/login", usersController.login)
 

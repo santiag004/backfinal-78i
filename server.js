@@ -1,13 +1,13 @@
 //importacion de express y dotenv
 import "dotenv/config";
 import express from 'express'
-import userRouter from '../routes/userRouter.js'
+import userRouter from './routes/userRouter.js'
 import cors from 'cors'
-import connectDB from "../database/db.js";
-import comprobacionJwt from "../middleware/comprobacionJwt.js";
-import privateRoute from '../routes/privateRoute.js'
-import classesRouter from '../routes/classesRouter.js'
-import servicesRouter from '../routes/servicesRouter.js'
+import connectDB from "./database/db.js";
+import comprobacionJwt from "./middleware/comprobacionJwt.js";
+import privateRoute from './routes/privateRoute.js'
+import classesRouter from './routes/classesRouter.js'
+import servicesRouter from './routes/servicesRouter.js'
 
 //creacion de la constante del puerto
 const PORT = process.env.PORT || 4000
@@ -23,7 +23,7 @@ app.use(cors())
 app.use("/api", userRouter)
 app.use("/api", classesRouter)
 app.use("/api", servicesRouter)
-app.use("/api", comprobacionJwt, privateRoute)
+// app.use("/api", comprobacionJwt, privateRoute)
 
 
 

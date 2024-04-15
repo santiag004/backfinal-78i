@@ -12,6 +12,6 @@ router.post("/classes/add", classesController.addClass)
 
 router.delete("/classes/:id", classesController.deleteClass)
 
-router.patch("/classes/:id", classesController.updateClass)
+router.put("/classes/:id", classesController.updateClass)
 
 export default router
