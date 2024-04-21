@@ -23,7 +23,7 @@ app.use(cors())
 app.use("/api", userRouter)
 app.use("/api", classesRouter)
 app.use("/api", servicesRouter)
-// app.use("/api", comprobacionJwt, privateRoute)
+app.use("/api", comprobacionJwt, privateRoute)
 
 
 
