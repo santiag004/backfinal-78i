@@ -4,16 +4,14 @@ const getAllServices = async (req, res) => {
     try {
         const services = await servicesModel.find()
         res.json(services)
-        console.log(services)
     } catch (error) {
-        console.log(error)
+        throw new Error(error)
     }
 }
 
 //AGREGAR SERVICIO
 
 const addService = async (req, res) => {
-    console.log(req.body, "body")
     try {
         const { url, titulo, descripcion } = req.body
         const servicio = new servicesModel({
@@ -25,7 +23,7 @@ const addService = async (req, res) => {
         res.status(201).json({ message: "Servicio agregado a la base de datos" })
     } catch (error) {
         res.status(400).json({ message: "Error al crear el servicio" })
-        console.log(error)
+        throw new Error(error)
     }
 }
 
@@ -37,7 +35,7 @@ const deleteService = async (req, res) => {
         const services = await servicesModel.findByIdAndDelete(id)
         res.json(services)
     } catch (error) {
-        console.log(error)
+        throw new Error(error)
     }
 }
 
@@ -53,7 +51,7 @@ const updateService = async (req, res) => {
         )
         res.json(servicio)
     } catch (error) {
-        console.log(error)
+        throw new Error(error)
     }
 }
 

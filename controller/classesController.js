@@ -4,16 +4,14 @@ const getAllClasses = async (req, res) => {
     try {
         const classes = await classesModel.find()
         res.json(classes)
-        console.log(classes)
     } catch (error) {
-        console.log(error)
+        throw new Error(error)
     }
 }
 
 //AGREGAR CLASES
 
 const addClass = async (req, res) => {
-    console.log(req.body, "body")
     try {
         const { profesor, detalle, fecha, hora } = req.body
         const clase = new classesModel({
@@ -26,7 +24,7 @@ const addClass = async (req, res) => {
         res.status(201).json({ message: "Clase agregada a la base de datos" })
     } catch (error) {
         res.status(400).json({ message: "Error al crear la clase" })
-        console.log(error)
+        throw new Error(error)
     }
 }
 
@@ -38,7 +36,7 @@ const deleteClass = async (req, res) => {
         const classes = await classesModel.findByIdAndDelete(id)
         res.json(classes)
     } catch (error) {
-        console.log(error)
+        throw new Error(error)
     }
 }
 
@@ -54,7 +52,7 @@ const updateClass = async (req, res) => {
         )
         res.json(clase)
     } catch (error) {
-        console.log(error)
+        throw new Error(error)
     }
 }
 
