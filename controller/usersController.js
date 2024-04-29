@@ -45,14 +45,14 @@ const deleteUsuario = async (req, res) => {
         throw new Error(error)
     }
 }
-
+//ACTUALIZAR DATOS DEL USUARIO
 const updateUser = async (req, res) => {
     try {
         const { id } = req.params
-        const { nombre, apellido, email, telefono, admin } = req.body
+        const { nombre, apellido, email, telefono, admin, isSuspended } = req.body
         const usuario = await usuarioModel.findByIdAndUpdate(
             id,
-            { nombre, apellido, email, telefono, admin },
+            { nombre, apellido, email, telefono, admin, isSuspended },
             { new: true }
         )
         res.json(usuario)
@@ -60,7 +60,7 @@ const updateUser = async (req, res) => {
         throw new Error(error)
     }
 }
-
+//
 const login = async (req, res) => {
     try {
         const { email, password } = req.body
@@ -85,7 +85,6 @@ const login = async (req, res) => {
                 id: usuario._id,
                 nombre: usuario.nombre,
                 admin: usuario.admin,
-                isSuspended:usuario.isSuspended,
             },
             process.env.SECRET_KEY,
             {
