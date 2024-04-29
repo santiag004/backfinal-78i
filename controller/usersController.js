@@ -84,7 +84,8 @@ const login = async (req, res) => {
             {
                 id: usuario._id,
                 nombre: usuario.nombre,
-                admin: usuario.admin
+                admin: usuario.admin,
+                isSuspended:usuario.isSuspended,
             },
             process.env.SECRET_KEY,
             {
