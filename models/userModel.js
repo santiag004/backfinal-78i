@@ -18,6 +18,10 @@ const usuariosSchema = new Schema({
         type: Boolean,
         default: false
     },
+    isSuspended:{
+        type:Boolean,
+        default:false
+    }
     },
     {versionKey: false}
 )

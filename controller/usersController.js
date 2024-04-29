@@ -15,7 +15,7 @@ const getAllUsers = async (req, res) => {
 
 const registroUsuario = async (req, res) => {
     try {
-        const { nombre, apellido, email, telefono, password } = req.body
+        const { nombre, apellido, email, telefono, password, isSuspended } = req.body
         const salt = await bcrypt.genSalt(10)
         const passwordHash = await bcrypt.hash(password, salt)
         const usuario = new usuarioModel({
@@ -23,6 +23,7 @@ const registroUsuario = async (req, res) => {
             apellido,
             email,
             telefono,
+            isSuspended,
             password: passwordHash,
         })
         await usuario.save()
